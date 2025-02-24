@@ -4,8 +4,10 @@ import main from "../components/main";
 function App() {
   return (
     <>
-      {header()}
-      {main()}
+      <div class="container">
+        {header()}
+        {main()}
+      </div>
     </>
   )
 }

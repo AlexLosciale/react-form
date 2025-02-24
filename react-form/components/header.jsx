@@ -1,8 +1,6 @@
 const header = () => {
     return (
-        <div>
-            <h1>React Form 1</h1>
-        </div>
+        <h1>Lista libri Tolkien</h1>
     )
 };
 export default header;
