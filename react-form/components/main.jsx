@@ -1,20 +1,10 @@
+import { useState } from "react";
+
 const main = () => {
-    const libriTolkien = [
+    const [libriTolkien, setlibriTolkien] = useState([
         {
           id: 1,
           titolo: "Lo Hobbit",
-        },
-        {
-          id: 2,
-          titolo: "Il Signore degli Anelli: La Compagnia dell'Anello",
-        },
-        {
-          id: 3,
-          titolo: "Il Signore degli Anelli: Le Due Torri",
-        },
-        {
-          id: 4,
-          titolo: "Il Signore degli Anelli: Il Ritorno del Re",
         },
         {
           id: 5,
@@ -36,14 +26,29 @@ const main = () => {
           id: 9,
           titolo: "I Figli di Húrin",
         }
-      ];
-      
+      ]);
+    const [newBook, setnewBook] = useState("");
+    
+
+    const addBook = () => {
+        setlibriTolkien([...libriTolkien, { id: libriTolkien.length + 1, titolo: newBook }]);
+        setnewBook("");
+    };
+
     return (
-        <ul class="article-list">
-            {libriTolkien.map((libro) => (
-                <li key={libro.id} className="article">{libro.titolo}</li>
-            ))}
-        </ul>
+        <div>
+            <ul class="article-list">
+                {libriTolkien.map((libro) => (
+                    <li key={libro.id} className="article">{libro.titolo}</li>
+                ))}
+            </ul>
+            <input
+                type="text"
+                value={newBook}
+                onChange={(e) => setnewBook(e.target.value)}
+            />
+            <button onClick={addBook}>Aggiungi libro</button>
+        </div>
     )
 };
 export default main;
