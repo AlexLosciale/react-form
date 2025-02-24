@@ -35,16 +35,25 @@ const main = () => {
         setnewBook("");
     };
 
+    const removeTask = (id) => {
+        setlibriTolkien(libriTolkien.filter((libro) => libro.id !== id));
+    };
+
     return (
         <div>
             <ul class="article-list">
                 {libriTolkien.map((libro) => (
-                    <li key={libro.id} className="article">{libro.titolo}</li>
+                    <li key={libro.id} className="article">{libro.titolo}
+                    <button onClick={() => removeTask(libro.id)}>
+                        Elimina
+                    </button>
+                    </li>
                 ))}
             </ul>
             <input
                 type="text"
                 value={newBook}
+                placeholder="Aggiungi un libro"
                 onChange={(e) => setnewBook(e.target.value)}
             />
             <button onClick={addBook}>Aggiungi libro</button>
