@@ -44,8 +44,8 @@ const main = () => {
             <ul class="article-list">
                 {libriTolkien.map((libro) => (
                     <li key={libro.id} className="article">{libro.titolo}
-                    <button onClick={() => removeTask(libro.id)}>
-                        Elimina
+                    <button className="btn-remove" onClick={() => removeTask(libro.id)}>
+                        X
                     </button>
                     </li>
                 ))}
@@ -56,7 +56,7 @@ const main = () => {
                 placeholder="Aggiungi un libro"
                 onChange={(e) => setnewBook(e.target.value)}
             />
-            <button onClick={addBook}>Aggiungi libro</button>
+            <button className="btn-aggiungi" onClick={addBook}>Aggiungi libro</button>
         </div>
     )
 };
